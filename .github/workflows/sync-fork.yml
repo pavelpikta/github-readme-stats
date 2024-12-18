@@ -14,10 +14,7 @@ jobs:
     steps:
       - name: "Sync fork"
         shell: bash
-        run: |
-          gh repo sync pavelpikta/github-readme-stats \
-            --source anuraghazra/github-readme-stats \
-            --force
+        run: gh repo sync ${{ github.repository }} --force
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_DEBUG: 1
